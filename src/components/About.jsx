@@ -3,6 +3,10 @@ import React from "react";
 const About = () => {
   const techStack = [
     {
+      name: "JavaScript",
+      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+    },
+    {
       name: "React",
       icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
     },
@@ -11,73 +15,41 @@ const About = () => {
       icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
     },
     {
-      name: "Python",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
-    },
-    {
-      name: "Docker",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
-    },
-    {
-      name: "TypeScript",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
-    },
-    {
-      name: "MongoDB",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
-    },
-    {
       name: "PostgreSQL",
       icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
     },
     {
-      name: "Express.js",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg",
+      name: "Deployment",
+      icon: "https://cdn-icons-png.flaticon.com/512/2889/2889631.png", // generic deploy/hosting icon
     },
     {
-      name: "Redux",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg",
+      name: "Python",
+      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
     },
     {
-      name: "Tailwind",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg",
+      name: "Django REST Framework",
+      icon: "https://cdn.worldvectorlogo.com/logos/django.svg",
     },
     {
-      name: "Next.js",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
+      name: "FastAPI",
+      icon: "https://seeklogo.com/images/F/fastapi-logo-0B6C1D09FC-seeklogo.com.png",
     },
     {
-      name: "GraphQL",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg",
-    },
-    {
-      name: "Firebase",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg",
-    },
-    {
-      name: "AWS",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg",
-    },
-    {
-      name: "Kubernetes",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg",
-    },
-    {
-      name: "Git",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
+      name: "AI/ML",
+      icon: "https://cdn-icons-png.flaticon.com/512/921/921071.png", // generic AI/ML icon
     },
   ];
 
   const experiences = [
-    { year: "2024 - Present", role: "AI & Full-Stack Engineer at XYZ Company" },
-    { year: "2022 - 2024", role: "Software Developer at ABC Solutions" },
-    { year: "2020 - 2022", role: "Internships & Personal Projects" },
-  ];
-
-  const stats = [
-    { value: "5+", label: "Years Experience" },
-    { value: "25+", label: "Projects Completed" },
-    { value: "10+", label: "Companies Worked" },
+    {
+      year: "2025 May - Present",
+      role: "Frontend Engineer at SSN Corporation",
+    },
+    {
+      year: "2025 Feb - 2025 May",
+      role: "Frontend Developer Internship at SSN Corporation",
+    },
+    { year: "2022 March - 2022 June", role: "Data Annotator at Cloud Factory" },
   ];
 
   return (
@@ -128,7 +100,7 @@ const About = () => {
           {techStack.map((tech, i) => (
             <div
               key={i}
-              className="bg-white/20 p-3 rounded-lg text-center shadow-lg w-20"
+              className="bg-white/20 p-3 rounded-lg text-center shadow-lg w-24"
               data-scroll
               data-scroll-speed={1 + (i % 5) * 0.1} // small parallax difference for each logo
             >
@@ -157,25 +129,6 @@ const About = () => {
             >
               <h4 className="font-semibold">{exp.year}</h4>
               <p>{exp.role}</p>
-            </div>
-          ))}
-        </div>
-
-        {/* Fun Stats */}
-        <div
-          className="flex flex-wrap gap-8 mt-6"
-          data-scroll
-          data-scroll-speed="1"
-        >
-          {stats.map((stat, i) => (
-            <div
-              key={i}
-              className="text-center w-36"
-              data-scroll
-              data-scroll-speed={1 + i * 0.2}
-            >
-              <h3 className="text-3xl font-bold">{stat.value}</h3>
-              <p>{stat.label}</p>
             </div>
           ))}
         </div>

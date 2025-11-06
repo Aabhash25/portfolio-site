@@ -8,7 +8,8 @@ import Contact from "./components/Contact";
 
 function App() {
   const scrollRef = useRef(null);
-  const locoScroll = useRef(null); // store LocomotiveScroll instance
+  const locoScroll = useRef(null);
+  const lastScrollY = useRef(0);
 
   useEffect(() => {
     locoScroll.current = new LocomotiveScroll({
@@ -17,7 +18,30 @@ function App() {
       multiplier: 1.0,
     });
 
-    return () => locoScroll.current.destroy();
+    // Detect scroll direction
+    locoScroll.current.on("scroll", (args) => {
+      const currentY = args.scroll.y;
+      const direction = currentY > lastScrollY.current ? "down" : "up";
+
+      if (direction === "down") {
+        locoScroll.current.smooth = true; // enable smooth scroll when scrolling down
+      } else {
+        locoScroll.current.smooth = false; // disable when scrolling up
+      }
+
+      lastScrollY.current = currentY;
+    });
+
+    // Refresh height after content/images load
+    const handleResize = () => locoScroll.current.update();
+    window.addEventListener("load", handleResize);
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      locoScroll.current.destroy();
+      window.removeEventListener("load", handleResize);
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
   return (

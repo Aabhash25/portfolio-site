@@ -5,7 +5,13 @@ html, body {
   height: 100%;
   overflow: hidden;
 }
+[data-scroll-container] {
+  overflow: hidden;
+}
 
+[data-scroll-section] {
+  position: relative;
+}
 body {
   font-family: "Roboto", sans-serif;
 }
